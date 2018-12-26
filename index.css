@@ -1,0 +1,220 @@
+html, body {
+    font-family: sans-serif;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: 16px 1fr 1fr 16px;
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 5px 5px;
+    width: 100%;
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    #app {
+        display: grid;
+        grid-template-columns: 1fr 300px 300px 1fr;
+        grid-template-rows: repeat(5, auto);
+        grid-gap: 5px 5px;
+        width: 100%;
+        margin: auto;
+    }
+}
+
+#app div {
+    /*background-color: bisque;*/
+}
+
+#fada {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#fada img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+#fada-magia {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    animation-name: ataque-fada;
+    animation-duration: 0.4s;
+}
+
+@keyframes ataque-fada {
+    0% {
+        position: relative;
+        left: 0;
+    }
+    50% {
+        position: relative;
+        left: 100px;
+    }
+    100% {
+        position: relative;
+        left: 0;
+    }
+}
+
+#monstro {
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+#monstro img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+#monstro-magia {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    animation-name: ataque-monstro;
+    animation-duration: 0.4s;
+}
+
+@keyframes ataque-monstro {
+    0% {
+        position: relative;
+        right: 0;
+    }
+    50% {
+        position: relative;
+        right: 100px;
+    }
+    100% {
+        position: relative;
+        right: 0;
+    }
+}
+
+#vida-fada {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#app .indicador-vida {
+    height: 100%;
+    /*background-color: greenyellow;*/
+    /*width: 100%;*/
+    border-radius: 10px;
+}
+
+#vida-monstro {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#resultado {
+    grid-column: 2/4;
+    grid-row: 3/4;
+    color: brown;
+    font-size: 20px;
+}
+
+
+#controles, #controles-iniciais {
+    grid-column: 2/4;
+    grid-row: 4/5;
+}
+
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    margin: 5px 0px 5px 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+#controles-iniciais .botoes {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px;
+    justify-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+
+#controles .botoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 120px;
+    justify-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.botoes p {
+    position: relative;
+    top: 50px;
+}
+
+#btn-ataque {
+    background-color: red;
+}
+
+#btn-ataque-especial {
+    background-color: darkorange;
+}
+
+#btn-curar {
+    background-color: greenyellow;
+}
+
+#btn-desistir {
+    background-color: lightskyblue;
+}
+
+
+#btn-iniciar{
+    background-color: deepskyblue;
+}
+
+#logs {
+    grid-column: 2/4;
+    grid-row: 5/6;
+    border-top: 1px solid #dddddd;
+}
+
+#logs p{
+    margin: 2px 0 2px 0;
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.log-fada {
+    background-color: #ffe881;
+}
+
+.log-monstro {
+    background-color: #c9efff;
+}
+

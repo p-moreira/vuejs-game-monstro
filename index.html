@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/vue"></script>
+    <title>Jogo do Monstro</title>
+</head>
+
+<body>
+    <h1>PEGUE O MONSTRO!</h1>
+    <main id="app">
+        <div id="fada" v-show="!posicaoDeAtaque"><img src="https://i.ibb.co/74rYs6W/fada.png"></div>
+        <div id="fada" v-show="posicaoDeAtaque"><img id="fada-magia" src="https://i.ibb.co/wBQgQFK/fada-magia.png"></div>
+        <div id="vida-fada">
+            <div class="indicador-vida" :style="indicadorDeVidaFada"></div>
+        </div>
+
+        <div id="monstro" v-show="!posicaoDeAtaqueMonstro"><img src="https://i.ibb.co/HhyQvnZ/monstro.png"></div>
+        <div id="monstro" v-show="posicaoDeAtaqueMonstro"><img id="monstro-magia" src="https://i.ibb.co/pf8hpPZ/monstromagia.png"></div>
+        <div id="vida-monstro">
+            <div class="indicador-vida" :style="indicadorDeVidaMonstro"></div>
+        </div>
+        
+        <div id="resultado" v-if="resultado != ''">
+            {{ resultado }}
+        </div>
+        
+        <div id="controles-iniciais" v-if="inicioDoJogo">
+            <ul class="botoes">
+                <li id="btn-iniciar" @click="iniciarJogo"><p>Iniciar Jogo</p></li>
+            </ul>
+        </div>
+        <div id="controles" v-if="!inicioDoJogo">
+            <ul class="botoes">
+                <li id="btn-ataque" @click="atacar"><p>Ataque</p></li>
+                <li id="btn-ataque-especial" @click="atacarEspecial"><p>Ataque Especial</p></li>
+                <li id="btn-curar" @click="curar"><p>Curar</p></li>
+                <li id="btn-desistir" @click="sairDoJogo"><p>Desistir</p></li>
+            </ul>
+        </div>
+        
+        <div id="logs" v-if="!inicioDoJogo">
+            <template v-for="(log, indice) in logs">
+                <p class="log-fada" v-if="indice % 2 == 0">{{ log }}</p>
+                <p class="log-monstro" v-if="indice % 2 != 0">{{ log }}</p>
+            </template>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>
