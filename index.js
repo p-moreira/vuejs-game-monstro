@@ -35,7 +35,7 @@ new Vue({
                 const {_danoFada, _percentualDeVidaFada} = this.monstroAtaca(6)
                 this.checarSeAlguemGanhou(this.percentualDeVidaMonstro, _percentualDeVidaFada)
                 this.escreverLog(0, _danoFada)
-            }, Math.floor(Math.random() * (4000 - 1000)) + 1000);
+            }, Math.floor(Math.random() * (3000 - 350)) + 350);
         },
         sairDoJogo(){
             this.iniciarJogo()
